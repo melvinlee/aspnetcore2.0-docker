@@ -63,3 +63,6 @@
 #*.RTF   diff=astextplain
 #
 src/wwwroot/* linguist-vendored=false
+bower.json linguist-vendored=false
+bundleconfig.json linguist-vendored=false
+appsettings.json linguist-vendored=false

@@ -1,3 +1,5 @@
+TravisCI [![Build Status](https://travis-ci.org/melvinlee/aspnetcore2.0-docker.svg?branch=develop)](https://travis-ci.org/melvinlee/aspnetcore2.0-docker)
+
 # ASP.NET Core HitCounter
 
 This project demostrate how to run an ASP.NET Core 2.0 App in a docker container.

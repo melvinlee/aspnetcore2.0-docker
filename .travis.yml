@@ -1,0 +1,17 @@
+sudo: required
+group: deprecated-2017Q4 
+
+services:
+  - docker
+
+addons:
+  apt:
+    packages:
+      - docker-ce
+
+script:
+  - docker build -t melvinlee/aspnetcore-hitcounter .
+
+after_success:
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
+    docker push melvinlee/aspnetcore-hitcounter;

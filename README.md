@@ -1,4 +1,5 @@
-TravisCI [![Build Status](https://travis-ci.org/melvinlee/aspnetcore2.0-docker.svg?branch=master)](https://travis-ci.org/melvinlee/aspnetcore2.0-docker)
+[![Build Status](https://travis-ci.org/melvinlee/aspnetcore2.0-docker.svg?branch=master)](https://travis-ci.org/melvinlee/aspnetcore2.0-docker) [![Build status](https://ci.appveyor.com/api/projects/status/xpuheok6seri9lhq?svg=true)](https://ci.appveyor.com/project/melvinlee/aspnetcore2-0-docker)
+
 
 # ASP.NET Core HitCounter
 

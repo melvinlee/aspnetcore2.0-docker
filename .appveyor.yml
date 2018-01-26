@@ -1,0 +1,11 @@
+skip_commits:
+  files:
+    - README.md
+
+image: Visual Studio 2017
+
+before_build:
+  - cmd: docker --version
+
+build_script:
+  - cmd: docker build -t melvinlee/aspnetcore-hitcounter .

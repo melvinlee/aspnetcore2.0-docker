@@ -13,9 +13,14 @@ addons:
     packages:
       - docker-ce
 
+env:
+  global:
+     - COMMIT=${TRAVIS_COMMIT::8}
+     - REPO="melvinlee/aspnetcore-hitcounter"
+
 script:
-  - docker build -t melvinlee/aspnetcore-hitcounter .
+  - docker build -t $REPO:$COMMIT .
 
 after_success:
-  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
-    docker push melvinlee/aspnetcore-hitcounter;
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+  - docker push $REPO

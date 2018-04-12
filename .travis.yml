@@ -16,7 +16,7 @@ addons:
 env:
   global:
      - COMMIT=${TRAVIS_COMMIT::8}
-     - REPO= melvinlee/aspnetcore-hitcounter
+     - REPO="melvinlee/aspnetcore-hitcounter"
 
 script:
   - docker build -f Dockerfile -t $REPO:$COMMIT

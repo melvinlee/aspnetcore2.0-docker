@@ -11,22 +11,14 @@ env:
    global:
     - COMMIT=${TRAVIS_COMMIT::8}
 
-before_script:
-  - IMAGE="melvinlee/aspnetcore-hitcounter"
-
 env:
   global:
      - COMMIT=${TRAVIS_COMMIT::8}
-     - REPO="melvinlee/aspnetcore-hitcounter"
+
+before_script:
+  - IMAGE="melvinlee/aspnetcore-hitcounter"
 
 script:
-<<<<<<< HEAD
-  - docker build -t $REPO:$COMMIT .
-
-after_success:
-  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-  - docker push $REPO
-=======
   - docker build -t $IMAGE .
   - TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
   - docker tag $IMAGE $IMAGE:$TAG
@@ -35,4 +27,3 @@ after_success:
 after_success:
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
   - docker push $IMAGE
->>>>>>> build: added docker tag and push.

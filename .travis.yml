@@ -1,17 +1,18 @@
 sudo: required
-group: deprecated-2017Q4 
 
 branches:
   only:
   - master
-  
+
 services:
   - docker
 
-addons:
-  apt:
-    packages:
-      - docker-ce
+env:
+   global:
+    - COMMIT=${TRAVIS_COMMIT::8}
+
+before_script:
+  - IMAGE="melvinlee/aspnetcore-hitcounter"
 
 env:
   global:
@@ -19,8 +20,19 @@ env:
      - REPO="melvinlee/aspnetcore-hitcounter"
 
 script:
+<<<<<<< HEAD
   - docker build -t $REPO:$COMMIT .
 
 after_success:
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
   - docker push $REPO
+=======
+  - docker build -t $IMAGE .
+  - TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - docker tag $IMAGE $IMAGE:$TAG
+  - docker tag $IMAGE $IMAGE:travis-$TRAVIS_BUILD_NUMBER
+
+after_success:
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+  - docker push $IMAGE
+>>>>>>> build: added docker tag and push.

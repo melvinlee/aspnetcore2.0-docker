@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/melvinlee/aspnetcore2.0-docker.svg?branch=master)](https://travis-ci.org/melvinlee/aspnetcore2.0-docker) [![Build status](https://ci.appveyor.com/api/projects/status/xpuheok6seri9lhq?svg=true)](https://ci.appveyor.com/project/melvinlee/aspnetcore2-0-docker)
+[![Build Status](https://travis-ci.org/melvinlee/aspnetcore2.0-hitcounter.svg?branch=master)](https://travis-ci.org/melvinlee/aspnetcore2.0-hitcounter) [![Build status](https://ci.appveyor.com/api/projects/status/xpuheok6seri9lhq?svg=true)](https://ci.appveyor.com/project/melvinlee/aspnetcore2-0-docker)
 
 
 # ASP.NET Core HitCounter
@@ -22,11 +22,14 @@ If you're using Visual Studio, install Visual Studio 15.3 or later with the foll
 
 First, restoring nuget packages.
 
-	$ dotnet restore
-
+```bash
+$ dotnet restore
+```
 Now, publish the app.
 
-	$ dotnet publish
+```bash
+$ dotnet publish
+```
 
 ## Docker
 
@@ -36,21 +39,27 @@ To build a image, we need a [Dockerfile](https://docs.docker.com/engine/referenc
 
 Let's build a new image by specify tag `aspnetcore/hitcounter`.
 
-	$ docker build -t aspnetcore/hitcounter .
-
+```bash
+$ docker build -t aspnetcore/hitcounter .
+```
 To verify image build successfully.
 
-	$ docker image ls
-	aspnetcore/hitcounter   latest              a1dcd224d495        2 seconds ago       283MB
+```bash
+$ docker image ls
+aspnetcore/hitcounter   latest              a1dcd224d495        2 seconds ago       283MB
+```
 
 Now, let's run the newly build image in detach mode.
 
-	$ docker run --rm -p 80:80 -d aspnetcore/hitcounter 
-
+```bash
+$ docker run --rm -p 80:80 -d aspnetcore/hitcounter 
+```
 To list running container.
 
-	$ docker ps
-	CONTAINER ID        IMAGE                   COMMAND                  CREATED             STATUS              PORTS                NAMES
-	5697e1c05ff8        aspnetcore/hitcounter   "dotnet hit-counte..."   4 minutes ago       Up 4 minutes        0.0.0.0:80->80/tcp   youthful_bassi
+```bash
+$ docker ps
+CONTAINER ID        IMAGE                   COMMAND                  CREATED             STATUS              PORTS                NAMES
+5697e1c05ff8        aspnetcore/hitcounter   "dotnet hit-counte..."   4 minutes ago       Up 4 minutes        0.0.0.0:80->80/tcp   youthful_bassi
+```
 
 Let's hit the page by using docker host ip.
